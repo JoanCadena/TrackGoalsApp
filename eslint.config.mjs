@@ -4,6 +4,7 @@ import path from "path";
 import { fileURLToPath } from "url";
 import { FlatCompat } from "@eslint/eslintrc";
 import pluginJs from "@eslint/js";
+import reactNative from "eslint-plugin-react-native";
 
 // mimic CommonJS variables -- not needed if using CommonJS
 const __filename = fileURLToPath(import.meta.url);
@@ -17,7 +18,7 @@ export default [
   {
     languageOptions: { globals: globals.browser },
     files: ["**/*.js", "**/*.jsx"],
-    plugins: ["react", "react-native"],
+    plugins: { "react-native": reactNative },
   },
   ...compat.extends("airbnb"),
 ];
